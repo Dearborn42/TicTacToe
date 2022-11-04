@@ -1,6 +1,5 @@
 let canvas = document.getElementById("canvas");
 let paint = canvas.getContext("2d");
-let cords = canvas.getBoundingClientRect();
 // Draws lines in even intervals on canvas, twice to make lines thicker
 function draw(){
     paint.beginPath();
@@ -18,6 +17,28 @@ function draw(){
 }
 draw();
 
-function move(){
+let board = [
+    [null, null, null], 
+    [null, null, null],
+    [null, null, null]
+]
+function moves(event){
+    let x = event.clientX;
+        if(x <= 829){
+        x = 0;
+    }else if(x <= 1085){
+        x = 1;
+    }else{
+        x = 2;
+    }
 
+    let y = event.clientY;
+    // if(y <= 329){
+    //     y = 0;
+    // }else if(y <= 559){
+    //     y = 1;
+    // }else{
+    //     y = 2;
+    // }
+    console.log(x, y);
 }
