@@ -1,0 +1,11 @@
+canvas{
+    background-color: grey;
+    width: 40vw;
+    height: 35vw;
+}
+
+div{
+    display: flex;
+    padding-left: 30%;
+    padding-top: 5%;
+}
