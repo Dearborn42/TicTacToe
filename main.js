@@ -1,6 +1,7 @@
 let canvas = document.getElementById("canvas");
 let paint = canvas.getContext("2d");
 let cords = canvas.getBoundingClientRect();
+// Draws lines in even intervals on canvas, twice to make lines thicker
 function draw(){
     paint.beginPath();
     for(let i=0; i<2; i++){
@@ -18,5 +19,5 @@ function draw(){
 draw();
 
 function move(){
-    
+
 }
