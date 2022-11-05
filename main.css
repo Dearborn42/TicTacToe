@@ -1,11 +1,14 @@
-canvas{
-    background-color: grey;
-    width: 40vw;
-    height: 35vw;
-}
+
 
 div{
     display: flex;
-    padding-left: 30%;
-    padding-top: 5%;
+    align-items: center;
+    flex-direction: row;
+    background-color: grey;
+}
+button{
+    padding-left: 15.84vw;
+    display: block;
+    width: 50vw;
+    height: 2vw;
 }
