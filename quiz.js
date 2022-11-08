@@ -63,8 +63,13 @@ const drinks = [
   "Daiquari",
 ];
 
-let mDrinks = drinks.filter(drinks => drinks == 'M');
-console.log(drinks.indexOf('M'));
+for(let i = 0; i < drinks.length; i++){
+  if(drinks[i].substring(0, 1) == "M"){
+    console.log(drinks[i])
+  }
+}
+// let mDrinks = drinks.filter(drinks => drinks);
+// console.log(mDrinks);
 // Expected Outcome
 // mDrinks = ['Milkshake', 'Milk', 'Martini', 'Margarita']
 
