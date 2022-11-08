@@ -28,14 +28,6 @@ let board = [
     [null, null, null, null, null]
 ];
 
-let board2 = [
-    [null, null, null, null, null, null],
-    [null, null, null, null, null, null],
-    [null, null, null, null, null, null],
-    [null, null, null, null, null, null],
-    [null, null, null, null, null, null]
-]
-
 function moves(action) {
     if (turn % 2 != 0) {
         chose(action, 'r', 'red');
@@ -49,12 +41,15 @@ function moves(action) {
     turn++;
 }
 
+let x;
+let y;
 let chose = function (action, String, color) {
     let a = action;
     for (let i = 0; i < 5; i++) {
         if (board[a][i] == null) {
             board[a][i] = String;
-            board2[i][a] = String;
+            x = action
+            y = i;
             ctx.beginPath();
             ctx.fillStyle = color;
             ctx.arc(((a * 51) + 22), (((4 - i) * 30) + 15), 12.5, 0, 2 * Math.PI);
@@ -81,16 +76,8 @@ let vWin = function(String, action) {
 
 // does not work
 let hWin = function(String, action) {
-    let a = parseInt(action);
-    let x = 0;
     let check = 0;
-    let check2 = 0;
-
-    for(let i=0; i<5; i++){
-        let row = board2[i].map(check => check);
-        let nRow = row.filter(check => check);
-        console.log(nRow)
-    }
+    console.log(check)
 }
 
 let dWin = function(String, action) {}
