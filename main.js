@@ -31,12 +31,14 @@ let board = [
 function moves(action) {
     if (turn % 2 != 0) {
         chose(action, 'r', 'red');
-        vWin('r', action);
-        hWin('r', action);
+        vWin('r');
+        hWin('r');
+        rdWin('r');
     } else {
         chose(action, 'y', 'yellow');
-        vWin('y', action);
-        hWin('y', action);
+        vWin('y');
+        hWin('y');
+        rdWin('y')
     }
     turn++;
 }
@@ -48,7 +50,7 @@ let chose = function (action, String, color) {
     for (let i = 0; i < 5; i++) {
         if (board[a][i] == null) {
             board[a][i] = String;
-            x = action
+            x = parseInt(action);
             y = i;
             ctx.beginPath();
             ctx.fillStyle = color;
@@ -60,24 +62,66 @@ let chose = function (action, String, color) {
     }
 }
 
-let vWin = function(String, action) {
-    let a = action;
-    let check = 0;
-    let filter = board[a].map(check => check);
-    for(let i = 0; i < 5; i++) {
-        if(filter[i] == String && filter[i] == filter[i + 1]){
-            check++;
+const OFFSETS = [0, 1, 2, 3];
+
+let vWin = function(String) {
+    for(let i = 0; i<board.length-1; i++) {
+        if(OFFSETS.every(o => board[x][i+o] === String)){
+            console.log(String + ' wins', i);
         }
     }
-    if(check == 3){
-        console.log(String + ' wins');
+}
+
+let hWin = function(String) {
+    for(let i = 0; i < board.length-3; i++) {
+        if(OFFSETS.every(o => board[i+o][y] === String)){
+            console.log(String + ' wins');
+        }
     }
 }
 
-// does not work
-let hWin = function(String, action) {
-    let check = 0;
-    console.log(check)
+let rdWin = function(String) {
+    for(let i=0; i < board.length-3; i++){
+        if(OFFSETS.every(o=> board[i+o][i+o] === String)){
+            console.log(String + ' wins');
+        }
+    }
+    for(let i=1; i < board.length-4; i++){
+        if(OFFSETS.every(o=> board[i+o][(i-1)+o] === String)){
+            console.log(String + ' wins');
+        }
+    }
+    for(let i=1; i < board.length-4; i++){
+        if(OFFSETS.every(o=> board[(i-1)+o][i+o] === String)){
+            console.log(String + ' wins');
+        }
+    }
+    for(let i=2; i < board.length-3; i++){
+        if(OFFSETS.every(o=> board[i+o][(i-2)+o] === String)){
+            console.log(String + ' wins');
+        }
+    }
 }
 
-let dWin = function(String, action) {}
+let ldWin = function(String){
+    // for(let i=0; i < board.length-3; i++){
+    //     if(OFFSETS.every(o=> board[i+o][i+o] === String)){
+    //         console.log(String + ' wins');
+    //     }
+    // }
+    for(let i=3; i > board.length-2; i--){
+        if(OFFSETS.every(o=> board[(i-3)-o][i-o] === String)){
+            console.log(String + ' wins');
+        }
+    }
+    // for(let i=1; i < board.length-4; i++){
+    //     if(OFFSETS.every(o=> board[(i-1)+o][i+o] === String)){
+    //         console.log(String + ' wins');
+    //     }
+    // }
+    // for(let i=2; i < board.length-3; i++){
+    //     if(OFFSETS.every(o=> board[i+o][(i-2)+o] === String)){
+    //         console.log(String + ' wins');
+    //     }
+    // }
+}
