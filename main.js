@@ -122,9 +122,9 @@ let ldWin = function(String){
             console.log(String + ' wins');
         }
     }
-    // for(let i=2; i < board.length-3; i++){
-    //     if(OFFSETS.every(o=> board[i+o][(i-2)+o] === String)){
-    //         console.log(String + ' wins');
-    //     }
-    // }
+    for(let i=2; i < board.length-3; i++){
+        if(OFFSETS.every(o=> board[i+o][(i+2)-o] === String)){
+            console.log(String + ' wins');
+        }
+    }
 }
