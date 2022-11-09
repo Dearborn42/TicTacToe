@@ -107,21 +107,21 @@ let rdWin = function(String) {
 }
 
 let ldWin = function(String){
-    //   for(let i=0; i < board.length-3; i++){
-    //     if(OFFSETS.every(o=> board[i+o][(i+4)-o] === String)){
-    //         console.log(String + ' wins');
-    //     }
-    // }
-    // for(let i=1; i < board.length-4; i++){
-    //     if(OFFSETS.every(o=> board[i+o][(i+3)-o] === String)){
-    //         console.log(String + ' wins');
-    //     }
-    // }
-    // for(let i=1; i < board.length-4; i++){
-    //     if(OFFSETS.every(o=> board[(i-1)+o][(i+2)-o] === String)){
-    //         console.log(String + ' wins');
-    //     }
-    // }
+      for(let i=0; i < board.length-3; i++){
+        if(OFFSETS.every(o=> board[i+o][(i+4)-o] === String)){
+            console.log(String + ' wins');
+        }
+    }
+    for(let i=1; i < board.length-4; i++){
+        if(OFFSETS.every(o=> board[i+o][(i+3)-o] === String)){
+            console.log(String + ' wins');
+        }
+    }
+    for(let i=1; i < board.length-4; i++){
+        if(OFFSETS.every(o=> board[(i-1)+o][(i+2)-o] === String)){
+            console.log(String + ' wins');
+        }
+    }
     // for(let i=2; i < board.length-3; i++){
     //     if(OFFSETS.every(o=> board[i+o][(i-2)+o] === String)){
     //         console.log(String + ' wins');
