@@ -39,15 +39,15 @@ function moves(action) {
         rdWin('r');
         ldWin('r');
         if(win != undefined){
-        turn = true;
-        for(let i = 1; i<7; i++){
-            document.getElementById(`grid${i}`).style.display="none";
+            turn = true;
+            for(let i = 1; i<7; i++){
+                document.getElementById(`grid${i}`).style.display="none";
+            }
+            c.style.display='none';
+            document.getElementById('reset').style.display="block";
+            document.getElementById('winner').style.display="block";
+            document.getElementById('winner').innerHTML = "The red player won!"
         }
-        c.style.display='none';
-        document.getElementById('reset').style.display="block";
-        document.getElementById('winner').style.display="block";
-        document.getElementById('winner').innerHTML = "The red player won!"
-    }
     } else {
         chose(action, 'y', 'yellow');
         vWin('y');
@@ -55,16 +55,17 @@ function moves(action) {
         rdWin('y');
         ldWin('y');
         if(win != undefined){
-        turn = true;
-        for(let i = 1; i<7; i++){
-            document.getElementById(`grid${i}`).style.display="none";
+            turn = true;
+            for(let i = 1; i<7; i++){
+                document.getElementById(`grid${i}`).style.display="none";
+            }
+            c.style.display='none';
+            document.getElementById('reset').style.display="block";
+            document.getElementById('winner').style.display="block";
+            document.getElementById('winner').innerHTML = "The yellow player won!"
         }
-        c.style.display='none';
-        document.getElementById('reset').style.display="block";
-        document.getElementById('winner').style.display="block";
-        document.getElementById('winner').innerHTML = "The yellow player won!"
     }
-    }
+    // little function that determines if no one won
     let isFull = 0;
     for(let i=0; i<6; i++){
         for(let j=0; j<5; j++){
