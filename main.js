@@ -65,6 +65,24 @@ function moves(action) {
         document.getElementById('winner').innerHTML = "The yellow player won!"
     }
     }
+    let isFull = 0;
+    for(let i=0; i<6; i++){
+        for(let j=0; j<5; j++){
+            if(board[i][j] != null){
+                isFull++;
+            }
+        }
+    }
+    if(isFull === 30){
+        turn = true;
+        for(let i = 1; i<7; i++){
+            document.getElementById(`grid${i}`).style.display="none";
+        }
+        c.style.display='none';
+        document.getElementById('reset').style.display="block";
+        document.getElementById('winner').style.display="block";
+        document.getElementById('winner').innerHTML = "No player won!"
+    }
     turn++;
 }
 
